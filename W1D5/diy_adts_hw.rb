@@ -20,3 +20,25 @@ class Stack
   end
 
 end
+
+### Exercise 2 = Queue
+
+class Queue
+
+  def initialize
+    @queue = []
+  end
+
+  def enqueue(el)
+    @queue.push(el)
+  end
+
+  def dequeue
+    @queue.unshift
+  end
+
+  def show
+    return @queue.dup
+  end
+
+end
