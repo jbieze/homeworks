@@ -92,7 +92,11 @@ end
 #
 # # fast_dance("right-down", new_tiles_data_structure)
 # # > 3
+new_tiles_data_structure = { "up" => 0, "right-up" => 1, "right" => 2,
+                             "right-down" => 3, "down" => 4,
+                             "left-down" => 5, "left" => 6,
+                             "left-up => 7" }
 
-def constant_dance!(tiles_array)
-
+def fast_dance(direction, new_tiles_data_structure)
+  tiles_hash[direction]
 end
