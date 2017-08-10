@@ -13,3 +13,18 @@ def sluggish_octopus(the_sea)
     return fish1 if longest
   end
 end
+
+def dominant_octopus(the_sea)
+end
+
+def clever_octopus(the_sea)
+  longest = the_sea[0]
+
+  the_sea.each do |fish|
+    if fish.length > longest.length
+      longest = fish
+    end
+  end
+
+  longest
+end
