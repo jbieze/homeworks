@@ -11,4 +11,6 @@ document.addEventListener("DOMContentLoaded", function(){
   ctx.strokeStyle = "blue";
   ctx.lineWidth = 2;
   ctx.stroke();
+  ctx.fillStyle = "skyblue";
+  ctx.fill();
 });
