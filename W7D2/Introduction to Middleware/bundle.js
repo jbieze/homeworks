@@ -13019,6 +13019,16 @@ document.addEventListener('DOMContentLoaded', function () {
   _reactDom2.default.render(_react2.default.createElement(_root2.default, { store: store }), root);
 });
 
+var addLoggingToDispatch = function addLoggingToDispatch(store) {
+  var OGDispatch = store.dispatch;
+  return function (action) {
+    console.log(store.getState());
+    console.log(action);
+    OGDispatch(action);
+    console.log(store.getState());
+  };
+};
+
 /***/ }),
 /* 148 */
 /***/ (function(module, exports, __webpack_require__) {
