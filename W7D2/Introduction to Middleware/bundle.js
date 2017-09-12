@@ -13020,13 +13020,26 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 var addLoggingToDispatch = function addLoggingToDispatch(store) {
-  var OGDispatch = store.dispatch;
-  return function (action) {
-    console.log(store.getState());
-    console.log(action);
-    OGDispatch(action);
-    console.log(store.getState());
+  return function (next) {
+    return function (action) {
+      console.log(store.getState());
+      console.log(action);
+      next(action);
+      console.log(store.getState());
+    };
   };
+};
+
+var applyMiddlewares = function applyMiddlewares(store) {
+  for (var _len = arguments.length, middlewares = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    middlewares[_key - 1] = arguments[_key];
+  }
+
+  var dispatch = store.dispatch;
+  middlewares.forEach(function (middleware) {
+    dispatch = middleware(store)(dispatch);
+  });
+  return Object.assign({}, store, { dispatch: dispatch });
 };
 
 /***/ }),
