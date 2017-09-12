@@ -13,13 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(<Root store={store} />, root);
 });
 
-const addLoggingToDispatch = store => next => action => {
-  console.log(store.getState());
-  console.log(action);
-  next(action);
-  console.log(store.getState());
-};
-
 const applyMiddlewares = (store, ...middlewares) => {
   let dispatch = store.dispatch;
   middlewares.forEach((middleware) => {

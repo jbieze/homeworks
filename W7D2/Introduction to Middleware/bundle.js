@@ -11980,6 +11980,18 @@ var configureStore = function configureStore() {
   return store;
 };
 
+// Phase 3: Using Redux applyMiddleware
+var addLoggingToDispatch = function addLoggingToDispatch(store) {
+  return function (next) {
+    return function (action) {
+      console.log(store.getState());
+      console.log(action);
+      next(action);
+      console.log(store.getState());
+    };
+  };
+};
+
 exports.default = configureStore;
 
 /***/ }),
@@ -13018,17 +13030,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var root = document.getElementById('content');
   _reactDom2.default.render(_react2.default.createElement(_root2.default, { store: store }), root);
 });
-
-var addLoggingToDispatch = function addLoggingToDispatch(store) {
-  return function (next) {
-    return function (action) {
-      console.log(store.getState());
-      console.log(action);
-      next(action);
-      console.log(store.getState());
-    };
-  };
-};
 
 var applyMiddlewares = function applyMiddlewares(store) {
   for (var _len = arguments.length, middlewares = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
