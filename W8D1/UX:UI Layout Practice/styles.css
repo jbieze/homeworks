@@ -1,0 +1,15 @@
+body {
+  align-items: flex-start;
+  background-image: url(splash.jpg);
+}
+
+.splash {
+  width: 100%
+}
+header {
+  align-content: flex-start;
+  width: 100%;
+  justify-content: center;
+}
+
+/* This is going terribly, and I have more pressing concerns.
